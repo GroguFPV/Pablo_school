@@ -1,0 +1,51 @@
+﻿<Window ResizeMode="NoResize" x:Class="Pablo_school.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pablo_school"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.Row="0" Fill="#FF78A6C9"></Rectangle>
+        <Rectangle Grid.Row="2" Fill="#FF78A6C9"></Rectangle>
+        <Frame NavigationUIVisibility="Hidden" Grid.Row="1" x:Name="MainFrame"></Frame>
+
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="TitleTB"
+            Foreground="#FFEAEFF3" FontSize="22" FontFamily="Castellar">Главное меню</TextBlock>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal"
+            VerticalAlignment="Center" HorizontalAlignment="Left">
+
+            <Button Width="100" Height="50" Background="#FF78A6C9" Foreground="#FFEAEFF3" FontSize="18"
+                BorderBrush="#FF78A6C9" x:Name="BackBtn"                     
+                Click="StudentListMWbtn_Click">Выход</Button>
+
+            <Button Width="90" Height="50" Background="#FF78A6C9" Foreground="#FFEAEFF3" FontSize="18"
+                BorderBrush="#FF78A6C9" x:Name="ExitBtn"                     
+                Click="StudentListMWbtn_Click">Назад</Button>
+            
+            <Button Width="200" Height="50" Background="#FF78A6C9" Foreground="#FFEAEFF3" FontSize="18"
+            BorderBrush="#FF78A6C9" x:Name="StudentListMWbtn"                     
+            Click="StudentListMWbtn_Click">Список студентов</Button>
+            
+                <Button Width="200" Height="50" Background="#FF78A6C9" Foreground="#FFEAEFF3" FontSize="18"
+                BorderBrush="#FF78A6C9" x:Name="EmListMWbtn" Click="EmListMWbtn_Click" 
+                >Список сотрудников</Button>
+
+            <Button Width="200" Height="50" Background="#FF78A6C9" Foreground="#FFEAEFF3" FontSize="18"
+                BorderBrush="#FF78A6C9" x:Name="ExamListMWbtn" Click="EmListMWbtn_Click" 
+                >Список экзаменов</Button>
+
+            <Button Width="200" Height="50" Background="#FF78A6C9" Foreground="#FFEAEFF3" FontSize="18"
+                BorderBrush="#FF78A6C9" x:Name="DisciplineListMWbtn" Click="EmListMWbtn_Click" 
+                >Список дисциплин</Button>
+            
+        </StackPanel>
+    </Grid>
+</Window>

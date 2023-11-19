@@ -1,0 +1,37 @@
+﻿<Page x:Class="new_school.Pages.AuthorizationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:new_school.Pages"
+      mc:Ignorable="d" 
+        d:DesignHeight="600" d:DesignWidth="1000"
+  Title="AuthorizationPage">
+
+    <Grid Background="#FFEAEFF3">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" 
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    Orientation="Vertical">
+            <TextBlock Foreground="#FF33678A" FontSize="16" 
+                   Margin="0,0,0,5">Для входа как сотрудник необходимо ввести 0000</TextBlock>
+            <TextBox  x:Name ="EmployeeTb" Margin="0,0,0,5" Height="30" BorderThickness="1.5"
+                  Style="{DynamicResource TexBoxStyle}"
+                 Background="#FFEAEFF3" FontSize="16" BorderBrush="#FF33678A" Foreground="#FF33678A"></TextBox>
+
+            <Button x:Name ="EmployeeBtn"  BorderBrush="White" Margin="0,0,0,5" Height="45" Style="{DynamicResource ButtonStyle}"
+            Foreground="#FFEAEFF3"  Background="#FF33678A"  FontSize="16" Click="EmployeeBtn_Click_1" >
+                Войти как сотрудник</Button>
+
+            <Button x:Name ="StudentBtn" BorderBrush="White"  Height="45" Style="{DynamicResource ButtonStyle}"
+        Foreground="#FFEAEFF3" Background="#FF33678A"  Margin="0,0,0,5" FontSize="16" Click="StudentBtn_Click_1">
+                Войти как студент</Button>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,56 @@
+﻿<Page x:Class="new_school.Pages.EmployeePages.EmployeeListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:new_school.Pages.EmployeePages"
+      mc:Ignorable="d" 
+       d:DesignHeight="600" d:DesignWidth="1000"
+      Title="EmployeeListPage">
+
+    <Grid Background="#FFEAEFF3">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <TextBlock Foreground="#FF33678A" FontSize="18" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"  >Сортировка</TextBlock>
+            <ComboBox Width="150" x:Name="SortCb"  Margin="5,3,0,0"  Foreground="#FF33678A"  >
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+                <ComboBoxItem Content="По фамилии"/>
+                <ComboBoxItem Content="По возрастанию"/>
+                <ComboBoxItem Content="По убыванию"/>
+            </ComboBox>
+
+            <TextBox x:Name="searchTB"  BorderThickness="1.3"  Style="{DynamicResource TexBoxStyle}"
+                 Width="200" Margin="33,3,0,0" BorderBrush="#FF78A6C9" Background="#FFEAEFF3" />
+
+            <TextBlock FontSize="18" Margin="0,1,0,0" VerticalAlignment="Center">🔍</TextBlock>
+
+            <Button Width="250" Height="35" Grid.Row="2" Background="#FF33678A" Style="{DynamicResource ButtonStyle2}" HorizontalAlignment="Right"
+                BorderBrush="#FF33678A" Foreground="#FFEAEFF3" x:Name="AddStudentDtn" FontSize="18" Margin="200,0,0,0" >Добавить сотрудника</Button>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled">
+            <WrapPanel x:Name="EmWP"/>
+        </ScrollViewer>
+
+        <StackPanel Orientation="Horizontal"
+            Grid.Row="2" VerticalAlignment="Center"
+            HorizontalAlignment="Center">
+
+
+
+
+        </StackPanel>
+
+    </Grid>
+</Page>

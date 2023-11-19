@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="new_school.Pages.EmployeePages.EmployeeUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:new_school.Pages.EmployeePages"
+             mc:Ignorable="d" 
+              d:DesignHeight="250" d:DesignWidth="480">
+    <Border BorderBrush="#FF33678A" BorderThickness="1.3">
+        <Grid  Background="#FFEAEFF3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="190"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="330"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1" Grid.Row="1" 
+                HorizontalAlignment="Center"
+                Orientation="Vertical">
+                <Image Height="127" Style="{DynamicResource ImageStyle}"
+               Source="\Components\Employee_image.jpg"></Image>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock FontSize="18" Foreground="#FF33678A" HorizontalAlignment="Center">ID:</TextBlock>
+                    <TextBlock x:Name="EmployeeID" FontSize="18" Foreground="#FF33678A" Margin="5,0,0,0"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical">
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="EmployeeLastName" FontSize="18" Foreground="#FF33678A" Margin="5,0,0,0">Иванов В. В</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="18" Foreground="#FF33678A" Margin="5,0,0,0">Должность:</TextBlock>
+                    <TextBlock x:Name="EmployeePosition" FontSize="18" Foreground="#FF33678A" Margin="5,0,0,0"></TextBlock>
+
+                </StackPanel>
+
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="18" Foreground="#FF33678A" Margin="5,0,0,0">Оклад :</TextBlock>
+                    <TextBlock x:Name="EmployeуSalary" FontSize="18" Foreground="#FF33678A" Margin="5,0,0,0"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="18" Foreground="#FF33678A" Margin="5,0,0,0">Шеф :</TextBlock>
+                    <TextBlock x:Name="EmployeуShef" FontSize="18" Foreground="#FF33678A" Margin="5,0,0,0"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock FontSize="18" Foreground="#FF33678A" Margin="5,0,0,0">Кафедра :</TextBlock>
+                    <TextBlock x:Name="EmployeуKaf" FontSize="18" Foreground="#FF33678A" Margin="5,0,0,0"></TextBlock>
+
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button BorderThickness="0" Height="35" Width="35" Foreground="#FF33678A"
+                Style="{DynamicResource ButtonStyle2}" x:Name="EditEmployeebtn"
+                Background="White" FontSize="20">✏️</Button>
+
+                <Button BorderThickness="0" Height="35" Width="35" Foreground="#FF33678A"
+                Style="{DynamicResource ButtonStyle2}"  x:Name="DelEmployeebtn"
+             Background="White" FontSize="20" Margin="10,0,0,0" Click="Button_Click">🗑️</Button>
+
+            </StackPanel>
+        </Grid>
+    </Border>
+
+</UserControl>
