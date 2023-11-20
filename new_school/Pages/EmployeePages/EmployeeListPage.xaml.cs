@@ -29,13 +29,48 @@ namespace new_school.Pages.EmployeePages
 
         private void Refresh()
         {
+            ///////////////////////////////////////////////////////////////////
             IEnumerable<Employee> emListSort = App.db.Employee;
+            if (SortCb.SelectedIndex != 0)
+            {
+                if (SortCb.SelectedIndex == 1)
+                {
+                    emListSort = emListSort.OrderBy(x => x.TabNumber);
+                }
+                else if (SortCb.SelectedIndex == 2)
+                {
+                    emListSort = emListSort.OrderBy(x => x.LastName);
+                }
+
+            }
+
+            if (searchTB.Text != null)
+            {
+                emListSort = emListSort.Where(x => x.LastName.ToLower().Contains
+                (searchTB.Text.ToLower()));
+
+            }
+
             EmWP.Children.Clear();
             foreach (var employee in emListSort)
             {
                 EmWP.Children.Add(new EmployeeUserControl(employee));
             }
+            
+        }
 
+
+        private void AddEmployeeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Добавление сотрудника", new AddEditEmployeePage(new Employee())));
+        }
+        private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Refresh();
+        }
+        private void SortCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
         }
     }
 }

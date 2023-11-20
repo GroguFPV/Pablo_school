@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="new_school.Pages.StudentPages.StudentUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:new_school.Pages.StudentPages"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="760">
+    <Border BorderBrush="#FF33678A" BorderThickness="1.3">
+        <Grid  Background="#FFEAEFF3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5"/>
+                <RowDefinition />
+                <RowDefinition Height="5"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="410" />
+                <ColumnDefinition Width="220"/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" x:Name="StudentTabNumber" FontSize="18" Foreground="#FF33678A"
+                       Margin="5,0,0,0">102022</TextBlock>
+
+            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" x:Name="StudentSpec" FontSize="18" Foreground="#FF33678A"
+                Margin="0,0,0,0">Информатика</TextBlock>
+
+            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="3" x:Name="StudentLastName" FontSize="18" Foreground="#FF33678A"
+                Margin="0,0,0,0">Иванов ИИ</TextBlock>
+            
+
+            <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button BorderThickness="0" Height="35" Width="35" Foreground="#FF33678A"
+             Style="{DynamicResource ButtonStyle2}" x:Name="EditStudentBtn"
+             Background="White" FontSize="20" Click="EditEmployeebtn_Click">✏️</Button>
+
+                <Button BorderThickness="0" Height="35" Width="35" Foreground="#FF33678A"
+             Style="{DynamicResource ButtonStyle2}"  x:Name="DelStudentBtn"
+          Background="White" FontSize="20" Margin="10,0,0,0" Click="DelStudentBtn_Click" >🗑️</Button>
+
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

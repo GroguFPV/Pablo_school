@@ -147,6 +147,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\EmployeePages\AddEditEmployeePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\EmployeePages\EmployeeListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -155,16 +159,40 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\StudentPages\AddEditStudentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StudentPages\StudentListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StudentPages\StudentUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EmployeePages\AddEditEmployeePage.xaml.cs">
+      <DependentUpon>AddEditEmployeePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\EmployeePages\EmployeeListPage.xaml.cs">
       <DependentUpon>EmployeeListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\EmployeePages\EmployeeUserControl.xaml.cs">
       <DependentUpon>EmployeeUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StudentPages\AddEditStudentPage.xaml.cs">
+      <DependentUpon>AddEditStudentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StudentPages\StudentListPage.xaml.cs">
+      <DependentUpon>StudentListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StudentPages\StudentUserControl.xaml.cs">
+      <DependentUpon>StudentUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -202,7 +230,6 @@
   <ItemGroup>
     <Folder Include="Pages\DisciplinePages\" />
     <Folder Include="Pages\ExamPages\" />
-    <Folder Include="Pages\StudentPages\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Components\Employee_image.jpg" />

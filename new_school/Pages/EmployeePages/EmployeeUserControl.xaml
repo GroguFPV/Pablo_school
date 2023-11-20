@@ -63,7 +63,7 @@
             <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button BorderThickness="0" Height="35" Width="35" Foreground="#FF33678A"
                 Style="{DynamicResource ButtonStyle2}" x:Name="EditEmployeebtn"
-                Background="White" FontSize="20">✏️</Button>
+                Background="White" FontSize="20" Click="EditEmployeebtn_Click">✏️</Button>
 
                 <Button BorderThickness="0" Height="35" Width="35" Foreground="#FF33678A"
                 Style="{DynamicResource ButtonStyle2}"  x:Name="DelEmployeebtn"

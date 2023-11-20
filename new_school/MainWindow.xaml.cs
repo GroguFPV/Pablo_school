@@ -1,5 +1,7 @@
 ﻿using new_school.Components;
 using new_school.Pages;
+using new_school.Pages.EmployeePages;
+using new_school.Pages.StudentPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,23 +35,35 @@ namespace new_school
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
+            
             Navigation.BackPage();
         }
 
         private void ExitBtn_Click(object sender, RoutedEventArgs e)
         {
+            App.isAdmin = false;
             Navigation.ClearHistory();
-            //Navigation.NextPage(new PageComponent("Авторизация", new AutorisPage()));
+            Navigation.NextPage(new PageComponent("Авторизация", new AuthorizationPage()));
         }
 
         private void StudentListMWbtn_Click(object sender, RoutedEventArgs e)
         {
-            //Navigation.NextPage(new PageComponent("Список студентов", new StudentListPagee()));
+            Navigation.NextPage(new PageComponent("Список студентов", new StudentListPage()));
         }
 
         private void EmListMWbtn_Click(object sender, RoutedEventArgs e)
         {
-            //Navigation.NextPage(new PageComponent("Список сотрудников", new EmployeeListPage()));
+            Navigation.NextPage(new PageComponent("Список сотрудников", new EmployeeListPage()));
+
+        }
+
+        private void ExamListMWbtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DisciplineListMWbtn_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

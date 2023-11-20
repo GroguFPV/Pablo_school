@@ -1,0 +1,49 @@
+﻿<Page x:Class="new_school.Pages.StudentPages.AddEditStudentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:new_school.Pages.StudentPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="AddEditStudentPage">
+
+    <Grid Background="#FFEAEFF3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"
+                 HorizontalAlignment="Center" 
+                 Orientation="Vertical">
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Foreground="#FF33678A" FontSize="18" >Рег. номер</TextBlock>
+                <TextBox x:Name="StudentTabNum" Foreground="#FF33678A" Height="30" Width="200" Margin="5,0,0,5" BorderBrush="#FF33678A" Style="{StaticResource TexBoxStyle}"
+                      FontSize="18" Text="{Binding RegNumber}"  Background="WhiteSmoke" ></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <TextBlock Foreground="#FF33678A" FontSize="18">Специальность</TextBlock>
+                <ComboBox Foreground="#FF33678A" x:Name="SpecCb"  FontSize="18" SelectedValue="{Binding Specialty}"
+                       Height="30" Width="200" Margin="5,0,0,5" BorderBrush="#FF33678A"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Foreground="#FF33678A" FontSize="18" >Фамилия И. О.</TextBlock>
+                <TextBox Foreground="#FF33678A"  Height="30" Width="200" Margin="5,0,0,5" BorderBrush="#FF33678A" Style="{StaticResource TexBoxStyle}"
+                      FontSize="18" Background="WhiteSmoke" Text="{Binding LastName}"></TextBox>
+            </StackPanel>
+            
+            <Button x:Name="SaveBtn" Style="{StaticResource ButtonStyle2}" Height="30" FontSize="18"
+                  BorderThickness="0" Background="#FF33678A"
+                 Foreground="#FFEAEFF3" Click="SaveBtn_Click" >Сохранить</Button>
+        </StackPanel>
+
+    </Grid>
+</Page>

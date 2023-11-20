@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище EPModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище EPModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Academics">
           <Key>
             <PropertyRef Name="ID" />
@@ -29,15 +29,6 @@
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Surname" Type="nvarchar" MaxLength="40" />
         </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6013: Первичный ключ в таблице или представлении "EP.dbo.Countries" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
-        <EntityType Name="Countries">
-          <Property Name="C_Name" Type="nvarchar" MaxLength="100" />
-          <Property Name="Capital" Type="nvarchar" MaxLength="100" />
-          <Property Name="Area" Type="int" />
-          <Property Name="Population" Type="int" />
-          <Property Name="Continent" Type="nvarchar" MaxLength="50" />
-        </EntityType>-->
         <EntityType Name="Discipline">
           <Key>
             <PropertyRef Name="Code" />
@@ -85,12 +76,6 @@
           <Property Name="Grade" Type="varchar" MaxLength="10" />
           <Property Name="Auditorium" Type="int" />
         </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6013: Первичный ключ в таблице или представлении "EP.dbo.Faculty" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
-        <EntityType Name="Faculty">
-          <Property Name="Abbreviation" Type="varchar" MaxLength="2" />
-          <Property Name="Title" Type="varchar" MaxLength="50" />
-        </EntityType>-->
         <EntityType Name="Flowers">
           <Key>
             <PropertyRef Name="ID" />
@@ -129,12 +114,6 @@
           <Property Name="PositionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Position" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6013: Первичный ключ в таблице или представлении "EP.dbo.Request" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
-        <EntityType Name="Request">
-          <Property Name="Code" Type="int" />
-          <Property Name="Number" Type="varchar" MaxLength="50" />
-        </EntityType>-->
         <EntityType Name="Specialty">
           <Key>
             <PropertyRef Name="SpecID" />
@@ -180,26 +159,18 @@
           <Property Name="Title" Type="varchar" MaxLength="50" />
           <Property Name="Degree" Type="varchar" MaxLength="20" />
         </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6013: Первичный ключ в таблице или представлении "EP.dbo.View_6" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
-        <EntityType Name="View_6">
-          <Property Name="Номер недели" Type="int" />
-          <Property Name="Количество экзаменов" Type="int" />
-          <Property Name="Количество студентов" Type="int" />
-        </EntityType>-->
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6013: Первичный ключ в таблице или представлении "EP.dbo.View_7" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
-        <EntityType Name="View_7">
-          <Property Name="Continent" Type="varchar" MaxLength="50" />
-          <Property Name="SquareMax" Type="float" />
-          <Property Name="SquareMin" Type="float" />
-        </EntityType>-->
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6013: Первичный ключ в таблице или представлении "EP.dbo.Zav_kaf" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
-        <EntityType Name="Zav_kaf">
-          <Property Name="TabNumber" Type="int" />
-          <Property Name="Experience" Type="int" />
-        </EntityType>-->
+        <Association Name="FK_Employee_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Employee1" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="TabNumber" />
+            </Principal>
+            <Dependent Role="Employee1">
+              <PropertyRef Name="Shef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Employee_Kafedra">
           <End Role="Kafedra" Type="Self.Kafedra" Multiplicity="0..1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
@@ -334,6 +305,10 @@
     [Licei].[Score] AS [Score]
     FROM [dbo].[Licei] AS [Licei]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK_Employee_Employee" Association="Self.FK_Employee_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Employee1" EntitySet="Employee" />
+          </AssociationSet>
           <AssociationSet Name="FK_Employee_Kafedra" Association="Self.FK_Employee_Kafedra">
             <End Role="Kafedra" EntitySet="Kafedra" />
             <End Role="Employee" EntitySet="Employee" />
@@ -371,8 +346,7 @@
             <End Role="Teacher" EntitySet="Teacher" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -410,22 +384,6 @@
           <Property Name="Kaf_code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_Discipline" FromRole="Discipline" ToRole="Exam" />
         </EntityType>
-        <EntityType Name="Employee">
-          <Key>
-            <PropertyRef Name="TabNumber" />
-          </Key>
-          <Property Name="TabNumber" Type="Int32" Nullable="false" />
-          <Property Name="Kaf_id" Type="Int32" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PositionID" Type="Int32" />
-          <Property Name="Salary" Type="Int32" />
-          <Property Name="Shef" Type="Int32" />
-          <NavigationProperty Name="Kafedra" Relationship="Self.FK_Employee_Kafedra" FromRole="Employee" ToRole="Kafedra" />
-          <NavigationProperty Name="Position" Relationship="Self.FK_Employee_Position" FromRole="Employee" ToRole="Position" />
-          <NavigationProperty Name="Engineer" Relationship="Self.FK_Engineer_Employee" FromRole="Employee" ToRole="Engineer" />
-          <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_Employee" FromRole="Employee" ToRole="Exam" />
-          <NavigationProperty Name="Teacher" Relationship="Self.FK_Teacher_Employee" FromRole="Employee" ToRole="Teacher" />
-        </EntityType>
         <EntityType Name="Engineer">
           <Key>
             <PropertyRef Name="EnginnerID" />
@@ -433,8 +391,8 @@
           <Property Name="EnginnerID" Type="Int32" Nullable="false" />
           <Property Name="TabNumber" Type="Int32" Nullable="false" />
           <Property Name="EnSpecID" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Engineer_Employee" FromRole="Engineer" ToRole="Employee" />
           <NavigationProperty Name="EnSpec" Relationship="Self.FK_Engineer_EnSpec" FromRole="Engineer" ToRole="EnSpec" />
+          <NavigationProperty Name="Employee" Relationship="EPModel.FK_Engineer_Employee" FromRole="Engineer" ToRole="Employee" />
         </EntityType>
         <EntityType Name="EnSpec">
           <Key>
@@ -456,8 +414,8 @@
           <Property Name="Grade" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Auditorium" Type="Int32" />
           <NavigationProperty Name="Discipline" Relationship="Self.FK_Exam_Discipline" FromRole="Exam" ToRole="Discipline" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Exam_Employee" FromRole="Exam" ToRole="Employee" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Exam_Student" FromRole="Exam" ToRole="Student" />
+          <NavigationProperty Name="Employee" Relationship="EPModel.FK_Exam_Employee" FromRole="Exam" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Flowers">
           <Key>
@@ -474,7 +432,7 @@
           <Property Name="Code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="FacultyAbbreviation" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Kafedra" FromRole="Kafedra" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="EPModel.FK_Employee_Kafedra" FromRole="Kafedra" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -482,7 +440,7 @@
           </Key>
           <Property Name="PositionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Position1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Position" FromRole="Position" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="EPModel.FK_Employee_Position" FromRole="Position" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Specialty">
           <Key>
@@ -531,7 +489,7 @@
           <Property Name="TabNumber" Type="Int32" Nullable="false" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Degree" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Teacher_Employee" FromRole="Teacher" ToRole="Employee" />
+          <NavigationProperty Name="Employee" Relationship="EPModel.FK_Teacher_Employee" FromRole="Teacher" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Licei">
           <Key>
@@ -555,66 +513,6 @@
             </Principal>
             <Dependent Role="Exam">
               <PropertyRef Name="Dis_Code" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Employee_Kafedra">
-          <End Role="Kafedra" Type="Self.Kafedra" Multiplicity="0..1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Kafedra">
-              <PropertyRef Name="Kaf_ID" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="Kaf_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Employee_Position">
-          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Position">
-              <PropertyRef Name="PositionID" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="PositionID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Engineer_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="Engineer" Type="Self.Engineer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="TabNumber" />
-            </Principal>
-            <Dependent Role="Engineer">
-              <PropertyRef Name="TabNumber" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Exam_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="TabNumber" />
-            </Principal>
-            <Dependent Role="Exam">
-              <PropertyRef Name="TabNumber" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Teacher_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="TabNumber" />
-            </Principal>
-            <Dependent Role="Teacher">
-              <PropertyRef Name="TabNumber" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -659,7 +557,6 @@
           <EntitySet Name="Animal" EntityType="Self.Animal" />
           <EntitySet Name="Control" EntityType="Self.Control" />
           <EntitySet Name="Discipline" EntityType="Self.Discipline" />
-          <EntitySet Name="Employee" EntityType="Self.Employee" />
           <EntitySet Name="Engineer" EntityType="Self.Engineer" />
           <EntitySet Name="EnSpec" EntityType="Self.EnSpec" />
           <EntitySet Name="Exam" EntityType="Self.Exam" />
@@ -676,26 +573,6 @@
             <End Role="Discipline" EntitySet="Discipline" />
             <End Role="Exam" EntitySet="Exam" />
           </AssociationSet>
-          <AssociationSet Name="FK_Employee_Kafedra" Association="Self.FK_Employee_Kafedra">
-            <End Role="Kafedra" EntitySet="Kafedra" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Employee_Position" Association="Self.FK_Employee_Position">
-            <End Role="Position" EntitySet="Position" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Engineer_Employee" Association="Self.FK_Engineer_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Engineer" EntitySet="Engineer" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Exam_Employee" Association="Self.FK_Exam_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Exam" EntitySet="Exam" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Teacher_Employee" Association="Self.FK_Teacher_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Teacher" EntitySet="Teacher" />
-          </AssociationSet>
           <AssociationSet Name="FK_Engineer_EnSpec" Association="Self.FK_Engineer_EnSpec">
             <End Role="EnSpec" EntitySet="EnSpec" />
             <End Role="Engineer" EntitySet="Engineer" />
@@ -708,7 +585,122 @@
             <End Role="Specialty" EntitySet="Specialty" />
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
+          <EntitySet Name="Employee" EntityType="EPModel.Employee" />
+          <AssociationSet Name="FK_Employee_Employee" Association="EPModel.FK_Employee_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Employee1" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Kafedra" Association="EPModel.FK_Employee_Kafedra">
+            <End Role="Kafedra" EntitySet="Kafedra" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Position" Association="EPModel.FK_Employee_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engineer_Employee" Association="EPModel.FK_Engineer_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Engineer" EntitySet="Engineer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_Employee" Association="EPModel.FK_Exam_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_Employee" Association="EPModel.FK_Teacher_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Teacher" EntitySet="Teacher" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="TabNumber" />
+          </Key>
+          <Property Name="TabNumber" Type="Int32" Nullable="false" />
+          <Property Name="Kaf_id" Type="Int32" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PositionID" Type="Int32" />
+          <Property Name="Salary" Type="Int32" />
+          <Property Name="Shef" Type="Int32" />
+          <NavigationProperty Name="Employee1" Relationship="EPModel.FK_Employee_Employee" FromRole="Employee" ToRole="Employee1" />
+          <NavigationProperty Name="Employee2" Relationship="EPModel.FK_Employee_Employee" FromRole="Employee1" ToRole="Employee" />
+          <NavigationProperty Name="Kafedra" Relationship="EPModel.FK_Employee_Kafedra" FromRole="Employee" ToRole="Kafedra" />
+          <NavigationProperty Name="Position" Relationship="EPModel.FK_Employee_Position" FromRole="Employee" ToRole="Position" />
+          <NavigationProperty Name="Engineer" Relationship="EPModel.FK_Engineer_Employee" FromRole="Employee" ToRole="Engineer" />
+          <NavigationProperty Name="Exam" Relationship="EPModel.FK_Exam_Employee" FromRole="Employee" ToRole="Exam" />
+          <NavigationProperty Name="Teacher" Relationship="EPModel.FK_Teacher_Employee" FromRole="Employee" ToRole="Teacher" />
+        </EntityType>
+        <Association Name="FK_Employee_Employee">
+          <End Type="EPModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="EPModel.Employee" Role="Employee1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="TabNumber" />
+            </Principal>
+            <Dependent Role="Employee1">
+              <PropertyRef Name="Shef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Kafedra">
+          <End Type="EPModel.Kafedra" Role="Kafedra" Multiplicity="0..1" />
+          <End Type="EPModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kafedra">
+              <PropertyRef Name="Kaf_ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Kaf_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Position">
+          <End Type="EPModel.Position" Role="Position" Multiplicity="0..1" />
+          <End Type="EPModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="PositionID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engineer_Employee">
+          <End Type="EPModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="EPModel.Engineer" Role="Engineer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="TabNumber" />
+            </Principal>
+            <Dependent Role="Engineer">
+              <PropertyRef Name="TabNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_Employee">
+          <End Type="EPModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="EPModel.Exam" Role="Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="TabNumber" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="TabNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teacher_Employee">
+          <End Type="EPModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="EPModel.Teacher" Role="Teacher" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="TabNumber" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="TabNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -749,18 +741,6 @@
                 <ScalarProperty Name="Volume" ColumnName="Volume" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Kaf_code" ColumnName="Kaf_code" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Employee">
-            <EntityTypeMapping TypeName="EPModel.Employee">
-              <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="TabNumber" ColumnName="TabNumber" />
-                <ScalarProperty Name="Kaf_id" ColumnName="Kaf_id" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
-                <ScalarProperty Name="Salary" ColumnName="Salary" />
-                <ScalarProperty Name="Shef" ColumnName="Shef" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -878,6 +858,18 @@
                 <ScalarProperty Name="Subject" ColumnName="Subject" />
                 <ScalarProperty Name="School" ColumnName="School" />
                 <ScalarProperty Name="Score" ColumnName="Score" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="EPModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Shef" ColumnName="Shef" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Kaf_id" ColumnName="Kaf_id" />
+                <ScalarProperty Name="TabNumber" ColumnName="TabNumber" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

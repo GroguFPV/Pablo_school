@@ -17,6 +17,7 @@ namespace new_school.Components
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Employee()
         {
+            this.Employee1 = new HashSet<Employee>();
             this.Engineer = new HashSet<Engineer>();
             this.Exam = new HashSet<Exam>();
         }
@@ -28,6 +29,9 @@ namespace new_school.Components
         public Nullable<int> Salary { get; set; }
         public Nullable<int> Shef { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Employee> Employee1 { get; set; }
+        public virtual Employee Employee2 { get; set; }
         public virtual Kafedra Kafedra { get; set; }
         public virtual Position Position { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

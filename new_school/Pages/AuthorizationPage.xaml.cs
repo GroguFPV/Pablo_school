@@ -1,5 +1,6 @@
 ﻿using new_school.Components;
 using new_school.Pages.EmployeePages;
+using new_school.Pages.StudentPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,29 +27,21 @@ namespace new_school.Pages
         {
             InitializeComponent();
         }
-        private void EmployeeBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (EmployeeTb.Text == "0000")
-            {
-                //Navigation.NextPage(new PageComponent("Список результата экзаменов", new ExamPage()));
-                App.isAdmin = true;
-            }
-            else MessageBox.Show("Необходимо ввести 0000");
-        }
+
 
         private void EmployeeBtn_Click_1(object sender, RoutedEventArgs e)
         {
             if (EmployeeTb.Text == "0000")
-            {
+            {   App.isAdmin = true;
                 Navigation.NextPage(new PageComponent("Список сотрудников", new EmployeeListPage()));
-                App.isAdmin = true;
+                
             }
             else MessageBox.Show("Необходимо ввести 0000");
         }
 
-        private void StudentBtn_Click_1(object sender, RoutedEventArgs e)
+        private void StudentBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Navigation.NextPage(new PageComponent("Список студентов", new StudentListPage()));
         }
     }
 }

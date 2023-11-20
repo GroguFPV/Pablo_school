@@ -18,7 +18,7 @@
 
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
             <TextBlock Foreground="#FF33678A" FontSize="18" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"  >Сортировка</TextBlock>
-            <ComboBox Width="150" x:Name="SortCb"  Margin="5,3,0,0"  Foreground="#FF33678A"  >
+            <ComboBox Width="150" x:Name="SortCb"  Margin="5,3,0,0" Foreground="#FF33678A" FontSize="18" SelectionChanged="SortCb_SelectionChanged" >
                 <ComboBox.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#FFF0F0F0"/>
@@ -26,17 +26,17 @@
                     </LinearGradientBrush>
                 </ComboBox.Background>
                 <ComboBoxItem Content="По фамилии"/>
-                <ComboBoxItem Content="По возрастанию"/>
-                <ComboBoxItem Content="По убыванию"/>
+                <ComboBoxItem Content="По ID"/>
+                <ComboBoxItem Content="По умолчанию"/>
             </ComboBox>
 
-            <TextBox x:Name="searchTB"  BorderThickness="1.3"  Style="{DynamicResource TexBoxStyle}"
-                 Width="200" Margin="33,3,0,0" BorderBrush="#FF78A6C9" Background="#FFEAEFF3" />
+            <TextBox x:Name="searchTB" Foreground="#FF33678A" FontSize="18" BorderThickness="1.3"  Style="{DynamicResource TexBoxStyle}"
+                 Width="200" Margin="33,3,0,0" BorderBrush="#FF78A6C9" Background="#FFEAEFF3" TextChanged="SearchTb_TextChanged" />
 
             <TextBlock FontSize="18" Margin="0,1,0,0" VerticalAlignment="Center">🔍</TextBlock>
 
             <Button Width="250" Height="35" Grid.Row="2" Background="#FF33678A" Style="{DynamicResource ButtonStyle2}" HorizontalAlignment="Right"
-                BorderBrush="#FF33678A" Foreground="#FFEAEFF3" x:Name="AddStudentDtn" FontSize="18" Margin="200,0,0,0" >Добавить сотрудника</Button>
+                BorderBrush="#FF33678A" Foreground="#FFEAEFF3" x:Name="AddEmployeeBtn" FontSize="18" Margin="200,0,0,0" Click="AddEmployeeBtn_Click" >Добавить сотрудника</Button>
         </StackPanel>
 
         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled">

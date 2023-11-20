@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace new_school.Components
@@ -28,6 +29,14 @@ namespace new_school.Components
                 System.Windows.Visibility.Visible :
                 System.Windows.Visibility.Hidden;
             mainWindow.MainFrame.Navigate(pageComponent.Page);
+
+            if(App.isAdmin == true)
+            {
+                mainWindow.EmListMWbtn.Visibility = System.Windows.Visibility.Visible;
+                mainWindow.ExamListMWbtn.Visibility = System.Windows.Visibility.Visible;
+                mainWindow.StudentListMWbtn.Visibility =System.Windows.Visibility.Visible;
+                mainWindow.DisciplineListMWbtn.Visibility = System.Windows.Visibility.Visible;
+            }
         }
 
         public static void NextPage(PageComponent pageComponent)

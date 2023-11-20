@@ -50,5 +50,10 @@ namespace new_school.Pages.EmployeePages
             App.db.SaveChanges();
             Navigation.NextPage(new PageComponent("Список услуг", new EmployeeListPage()));
         }
+
+        private void EditEmployeebtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Редактирование данных сотрудника", new AddEditEmployeePage(employee)));
+        }
     }
 }

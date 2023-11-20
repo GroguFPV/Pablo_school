@@ -23,7 +23,7 @@ namespace new_school.Components
         public Nullable<int> Auditorium { get; set; }
     
         public virtual Discipline Discipline { get; set; }
-        public virtual Employee Employee { get; set; }
         public virtual Student Student { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }
