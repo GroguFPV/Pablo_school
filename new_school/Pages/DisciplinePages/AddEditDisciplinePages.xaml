@@ -1,0 +1,56 @@
+﻿<Page x:Class="new_school.Pages.DisciplinePages.AddEditDisciplinePages"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:new_school.Pages.DisciplinePages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="AddEditDisciplinePages">
+
+    <Grid Background="#FFEAEFF3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"
+                HorizontalAlignment="Center" 
+                Orientation="Vertical">
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Foreground="#FF33678A" FontSize="18" >Код</TextBlock>
+                <TextBox x:Name="DisCode" Foreground="#FF33678A" Height="30" Width="200" Margin="5,0,0,5" BorderBrush="#FF33678A" Style="{StaticResource TexBoxStyle}"
+                     FontSize="18" Text="{Binding Code}" Background="WhiteSmoke" ></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Foreground="#FF33678A" FontSize="18" >Объем</TextBlock>
+                <TextBox x:Name="DisVolume" Foreground="#FF33678A" Height="30" Width="200" Margin="5,0,0,5" BorderBrush="#FF33678A" Style="{StaticResource TexBoxStyle}"
+                FontSize="18" Text="{Binding Volume}" Background="WhiteSmoke" ></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Foreground="#FF33678A" FontSize="18" >Название</TextBlock>
+                <TextBox x:Name="DisName" Foreground="#FF33678A" Height="30" Width="200" Margin="5,0,0,5" BorderBrush="#FF33678A" Style="{StaticResource TexBoxStyle}"
+                 FontSize="18" Text="{Binding Title}" Background="WhiteSmoke" ></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Foreground="#FF33678A" FontSize="18">Кафедра</TextBlock>
+                <ComboBox Foreground="#FF33678A" x:Name="KadCb"  FontSize="18" SelectedItem="{Binding Kafedra}"
+                 Height="30" Width="200" Margin="5,0,0,5" BorderBrush="#FF33678A"></ComboBox>
+            </StackPanel>
+
+            
+
+            <Button x:Name="SaveBtn" Style="{StaticResource ButtonStyle2}" Height="30" FontSize="18"
+                 BorderThickness="0" Background="#FF33678A"
+                Foreground="#FFEAEFF3" Click="SaveBtn_Click">Сохранить</Button>
+        </StackPanel>
+
+    </Grid>
+</Page>

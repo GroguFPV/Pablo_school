@@ -53,7 +53,7 @@ namespace new_school.Pages.EmployeePages
 
         private void EditEmployeebtn_Click(object sender, RoutedEventArgs e)
         {
-            Navigation.NextPage(new PageComponent("Редактирование данных сотрудника", new AddEditEmployeePage(employee)));
+            Navigation.NextPage(new PageComponent("Редактирование данных сотрудника", new AddEditEmployeePage(employee, "Edit")));
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using new_school.Components;
+using new_school.Pages.EmployeePages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,14 +15,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace new_school.Pages.EmployeePages
+namespace new_school.Pages.DisciplinePages
 {
     /// <summary>
-    /// Логика взаимодействия для EmployeeListPage.xaml
+    /// Логика взаимодействия для DisciplinePage.xaml
     /// </summary>
-    public partial class EmployeeListPage : Page
+    public partial class DisciplinePage : Page
     {
-        public EmployeeListPage()
+        public DisciplinePage()
         {
             InitializeComponent();
             Refresh();
@@ -30,40 +31,35 @@ namespace new_school.Pages.EmployeePages
         private void Refresh()
         {
             ///////////////////////////////////////////////////////////////////
-            IEnumerable<Employee> emListSort = App.db.Employee;
+            IEnumerable<Discipline> disListSort = App.db.Discipline;
             if (SortCb.SelectedIndex != 0)
             {
                 if (SortCb.SelectedIndex == 1)
                 {
-                    emListSort = emListSort.OrderBy(x => x.TabNumber);
+                    disListSort = disListSort.OrderBy(x => x.Volume);
                 }
                 else if (SortCb.SelectedIndex == 2)
                 {
-                    emListSort = emListSort.OrderBy(x => x.LastName);
+                    disListSort = disListSort.OrderBy(x => x.Title);
                 }
 
             }
 
             if (searchTB.Text != null)
             {
-                emListSort = emListSort.Where(x => x.LastName.ToLower().Contains
+                disListSort = disListSort.Where(x => x.Title.ToLower().Contains
                 (searchTB.Text.ToLower()));
 
             }
 
-            EmWP.Children.Clear();
-            foreach (var employee in emListSort)
+            DisWP.Children.Clear();
+            foreach (var discipline in disListSort)
             {
-                EmWP.Children.Add(new EmployeeUserControl(employee));
+                DisWP.Children.Add(new DisciplineUserControl(discipline));
             }
-            
+
         }
 
-
-        private void AddEmployeeBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Navigation.NextPage(new PageComponent("Добавление сотрудника", new AddEditEmployeePage(new Employee(), "Add")));
-        }
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {
             Refresh();
@@ -71,6 +67,11 @@ namespace new_school.Pages.EmployeePages
         private void SortCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Refresh();
+        }
+
+        private void AddDisBtn_Click(object sender, RoutedEventArgs e)
+        {
+             Navigation.NextPage(new PageComponent("Добавление дисциплины", new AddEditDisciplinePages(new Discipline(), "Add")));
         }
     }
 }

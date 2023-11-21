@@ -1,0 +1,62 @@
+﻿<Page x:Class="new_school.Pages.ExamPages.AddEditExamPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:new_school.Pages.ExamPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="AddEditExamPage">
+
+    <Grid Background="#FFEAEFF3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"
+             HorizontalAlignment="Center" 
+             Orientation="Vertical">
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <TextBlock  Foreground="#FF33678A" FontSize="18" >Дата</TextBlock>
+                <DatePicker Width="200" Foreground="#FF33678A" FontSize="18" x:Name="ExamDateDP" SelectedDate="{Binding Date}"  Margin="10,0,0,5"></DatePicker>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <TextBlock Foreground="#FF33678A" FontSize="18">Дисциплина</TextBlock>
+                <ComboBox Foreground="#FF33678A" x:Name="ExamDisCb"  FontSize="18" SelectedValue="{Binding Discipline}"
+                   Height="30" Width="200" Margin="5,0,0,5" BorderBrush="#FF33678A"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <TextBlock Foreground="#FF33678A" FontSize="18">Студент </TextBlock>
+                <ComboBox Foreground="#FF33678A" x:Name="ExamStudentCb"  FontSize="18" SelectedValue="{Binding Student}"
+                    Height="30" Width="200" Margin="5,0,0,5" BorderBrush="#FF33678A"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <TextBlock Foreground="#FF33678A" FontSize="18">Сотрудник</TextBlock>
+                <ComboBox Foreground="#FF33678A" x:Name="ExamEmCb"  FontSize="18" SelectedValue="{Binding Employee}"
+                 Height="30" Width="200" Margin="5,0,0,5" BorderBrush="#FF33678A"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <TextBlock Foreground="#FF33678A" FontSize="18">Аудитория</TextBlock>
+                <ComboBox Foreground="#FF33678A" x:Name="ExamAudiCb"  FontSize="18" SelectedItem="{Binding Auditorium}" SelectedValue="{Binding Auditorium}"
+                 Height="30" Width="200" Margin="5,0,0,5" BorderBrush="#FF33678A"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                <TextBlock Foreground="#FF33678A" FontSize="18">Оценка</TextBlock>
+                <TextBox Foreground="#FF33678A" x:Name="ExamGradeTb"  FontSize="18" Text="{Binding Grade}"
+             Height="30" Width="200" Margin="5,0,0,5" BorderBrush="#FF33678A"></TextBox>
+            </StackPanel>
+            <Button x:Name="SaveBtn" Style="{StaticResource ButtonStyle2}" Height="30" FontSize="18"
+              BorderThickness="0" Background="#FF33678A"
+             Foreground="#FFEAEFF3" Click="SaveBtn_Click" >Сохранить</Button>
+        </StackPanel>
+
+    </Grid>
+</Page>

@@ -7,25 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Pablo_school.Res
+namespace new_school.Components
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Student
+    public partial class Grade
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Student()
-        {
-            this.Exam = new HashSet<Exam>();
-        }
-    
-        public int RegNumber { get; set; }
-        public Nullable<int> Spec_ID { get; set; }
-        public string LastName { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Exam> Exam { get; set; }
-        public virtual Specialty Specialty { get; set; }
+        public int GradeID { get; set; }
+        public string Grade1 { get; set; }
     }
 }

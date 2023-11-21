@@ -18,6 +18,8 @@ namespace new_school.Components
         public Kafedra()
         {
             this.Employee = new HashSet<Employee>();
+            this.Specialty = new HashSet<Specialty>();
+            this.Discipline = new HashSet<Discipline>();
         }
     
         public int Kaf_ID { get; set; }
@@ -27,5 +29,9 @@ namespace new_school.Components
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employee> Employee { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Specialty> Specialty { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Discipline> Discipline { get; set; }
     }
 }

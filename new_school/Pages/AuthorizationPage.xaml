@@ -11,7 +11,7 @@
     <Grid Background="#FFEAEFF3">
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="230"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
@@ -32,6 +32,12 @@
             <Button x:Name ="StudentBtn" BorderBrush="White"  Height="45" Style="{DynamicResource ButtonStyle}"
         Foreground="#FFEAEFF3" Background="#FF33678A"  Margin="0,0,0,5" FontSize="16" Click="StudentBtn_Click" >
                 Войти как студент</Button>
+
+            <Button x:Name ="QRbtn" BorderBrush="White"  Height="45" Style="{DynamicResource ButtonStyle}"
+                Foreground="#FFEAEFF3" Background="#FF33678A"  Margin="0,0,0,5" FontSize="16" Click="QRbtn_Click"  >
+                О приложении</Button>
+            
         </StackPanel>
+        <Image Grid.Row="2" x:Name="imageQr" Height="150" Width="150" ></Image>
     </Grid>
 </Page>

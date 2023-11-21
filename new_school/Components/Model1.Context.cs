@@ -13,10 +13,10 @@ namespace new_school.Components
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EPEntities : DbContext
+    public partial class EPEntities1 : DbContext
     {
-        public EPEntities()
-            : base("name=EPEntities")
+        public EPEntities1()
+            : base("name=EPEntities1")
         {
         }
     
@@ -27,12 +27,14 @@ namespace new_school.Components
     
         public virtual DbSet<Academics> Academics { get; set; }
         public virtual DbSet<Animal> Animal { get; set; }
+        public virtual DbSet<Auditorium> Auditorium { get; set; }
         public virtual DbSet<Control> Control { get; set; }
-        public virtual DbSet<Discipline> Discipline { get; set; }
+        public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Engineer> Engineer { get; set; }
         public virtual DbSet<EnSpec> EnSpec { get; set; }
         public virtual DbSet<Exam> Exam { get; set; }
         public virtual DbSet<Flowers> Flowers { get; set; }
+        public virtual DbSet<Grade> Grade { get; set; }
         public virtual DbSet<Kafedra> Kafedra { get; set; }
         public virtual DbSet<Position> Position { get; set; }
         public virtual DbSet<Specialty> Specialty { get; set; }
@@ -41,6 +43,6 @@ namespace new_school.Components
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Teacher> Teacher { get; set; }
         public virtual DbSet<Licei> Licei { get; set; }
-        public virtual DbSet<Employee> Employee { get; set; }
+        public virtual DbSet<Discipline> Discipline { get; set; }
     }
 }

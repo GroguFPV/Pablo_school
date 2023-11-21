@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="new_school.Pages.StudentPages.StudentUserControl"
+﻿<UserControl x:Class="new_school.Pages.DisciplinePages.DisciplineUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:new_school.Pages.StudentPages"
+             xmlns:local="clr-namespace:new_school.Pages.DisciplinePages"
              mc:Ignorable="d" 
-             d:DesignHeight="50" d:DesignWidth="740">
+             d:DesignHeight="50" d:DesignWidth="780">
     <Border BorderBrush="#FF33678A" BorderThickness="1.3">
         <Grid  Background="#FFEAEFF3">
             <Grid.RowDefinitions>
@@ -17,22 +17,24 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5"/>
                 <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="380" />
-                <ColumnDefinition Width="240"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="340"/>
+                <ColumnDefinition Width="210"/>
                 <ColumnDefinition Width="5"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" x:Name="StudentTabNumber" FontSize="18" Foreground="#FF33678A"
-                       Margin="5,0,0,0">102022</TextBlock>
+            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" x:Name="DisCodeTb" FontSize="18" Foreground="#FF33678A"
+                       Margin="5,0,0,0">Код</TextBlock>
 
-            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" x:Name="StudentSpec" FontSize="18" Foreground="#FF33678A"
-                Margin="5,0,0,0">Информатика</TextBlock>
+            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="2" x:Name="DisVolTb" FontSize="18" Foreground="#FF33678A"
+                Margin="0,0,0,0">Объем</TextBlock>
 
-            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="3" x:Name="StudentLastName" FontSize="18" Foreground="#FF33678A"
-                Margin="5,0,0,0">Гареев дэ</TextBlock>
-            
+            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="3" x:Name="DisNameTb" FontSize="18" Foreground="#FF33678A"
+                Margin="0,0,0,0">Название дисциплины</TextBlock>
+            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="4" x:Name="DisKaf" FontSize="18" Foreground="#FF33678A"
+                 Margin="0,0,0,0">Код кафедры</TextBlock>
 
-            <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel Grid.Row="1" Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button BorderThickness="0" Height="35" Width="35" Foreground="#FF33678A"
              Style="{DynamicResource ButtonStyle2}" x:Name="EditStudentBtn"
              Background="White" FontSize="20" Click="EditEmployeebtn_Click">✏️</Button>

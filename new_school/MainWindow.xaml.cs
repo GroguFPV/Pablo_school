@@ -1,6 +1,8 @@
 ﻿using new_school.Components;
 using new_school.Pages;
+using new_school.Pages.DisciplinePages;
 using new_school.Pages.EmployeePages;
+using new_school.Pages.ExamPages;
 using new_school.Pages.StudentPages;
 using System;
 using System.Collections.Generic;
@@ -39,13 +41,6 @@ namespace new_school
             Navigation.BackPage();
         }
 
-        private void ExitBtn_Click(object sender, RoutedEventArgs e)
-        {
-            App.isAdmin = false;
-            Navigation.ClearHistory();
-            Navigation.NextPage(new PageComponent("Авторизация", new AuthorizationPage()));
-        }
-
         private void StudentListMWbtn_Click(object sender, RoutedEventArgs e)
         {
             Navigation.NextPage(new PageComponent("Список студентов", new StudentListPage()));
@@ -59,12 +54,20 @@ namespace new_school
 
         private void ExamListMWbtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Navigation.NextPage(new PageComponent("Список экзаменов", new ExamListPage()));
         }
 
         private void DisciplineListMWbtn_Click(object sender, RoutedEventArgs e)
         {
+            Navigation.NextPage(new PageComponent("Список дисциплин", new DisciplinePage()));
 
+        }
+
+        private void ExitBtn_Click_1(object sender, RoutedEventArgs e)
+        {
+            App.isAdmin = false;
+            Navigation.ClearHistory();
+            Navigation.NextPage(new PageComponent("Авторизация", new AuthorizationPage()));
         }
     }
 }

@@ -23,7 +23,7 @@
         VerticalAlignment="Center" HorizontalAlignment="Left">
 
             <Button Width="100" Height="50" Background="#FF78A6C9" Foreground="#FFEAEFF3" FontSize="18"
-            BorderBrush="#FF78A6C9" x:Name="ExitBtn"                 
+            BorderBrush="#FF78A6C9" x:Name="ExitBtn" Click="ExitBtn_Click_1"                 
             >Выход</Button>
 
             <Button Width="90" Height="50" Background="#FF78A6C9" Foreground="#FFEAEFF3" FontSize="18"

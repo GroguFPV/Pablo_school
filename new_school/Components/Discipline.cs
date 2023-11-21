@@ -23,8 +23,9 @@ namespace new_school.Components
         public int Code { get; set; }
         public Nullable<int> Volume { get; set; }
         public string Title { get; set; }
-        public string Kaf_code { get; set; }
+        public Nullable<int> Kaf_ID { get; set; }
     
+        public virtual Kafedra Kafedra { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam> Exam { get; set; }
     }

@@ -15,8 +15,9 @@ namespace new_school.Components
 
         public static void ClearHistory()
         {
-            App.isAdmin = false;
+            
             components.Clear();
+            App.isAdmin = false;
         }
 
         private static void Update(PageComponent pageComponent)
@@ -36,6 +37,13 @@ namespace new_school.Components
                 mainWindow.ExamListMWbtn.Visibility = System.Windows.Visibility.Visible;
                 mainWindow.StudentListMWbtn.Visibility =System.Windows.Visibility.Visible;
                 mainWindow.DisciplineListMWbtn.Visibility = System.Windows.Visibility.Visible;
+            }
+            else
+            {
+                mainWindow.EmListMWbtn.Visibility = System.Windows.Visibility.Hidden;
+                mainWindow.ExamListMWbtn.Visibility = System.Windows.Visibility.Hidden;
+                mainWindow.StudentListMWbtn.Visibility = System.Windows.Visibility.Hidden;
+                mainWindow.DisciplineListMWbtn.Visibility = System.Windows.Visibility.Hidden;
             }
         }
 

@@ -19,11 +19,12 @@ namespace new_school.Components
         public Nullable<int> Dis_Code { get; set; }
         public Nullable<int> RegNumber { get; set; }
         public Nullable<int> TabNumber { get; set; }
-        public string Grade { get; set; }
-        public Nullable<int> Auditorium { get; set; }
+        public Nullable<int> AuditoriumID { get; set; }
+        public Nullable<int> Grade { get; set; }
     
-        public virtual Discipline Discipline { get; set; }
-        public virtual Student Student { get; set; }
+        public virtual Auditorium Auditorium { get; set; }
         public virtual Employee Employee { get; set; }
+        public virtual Student Student { get; set; }
+        public virtual Discipline Discipline { get; set; }
     }
 }

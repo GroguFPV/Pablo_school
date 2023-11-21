@@ -2,6 +2,7 @@
 using new_school.Pages.EmployeePages;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,46 +60,46 @@ namespace new_school.Pages.StudentPages
             if (selectSpec != null)
             {
                 if (StudentTabNum.Text.Length != 5)
-                {                    errors = true;
+                {
+                    errors = true;
 
                     MessageBox.Show("Длина табелного номера должна состоять из 5 символов!");
                     Navigation.NextPage(new PageComponent("Добавление студента", new AddEditStudentPage(new Student(), "Add")));
                 }
 
-                if (student.RegNumber == 0)
+                if (student.RegNumber != 0 && AddorEdit == "Add")
                 {
-                    if (App.db.Student.Any(x => x.RegNumber == student.RegNumber) && AddorEdit == "Add")
+                    if (App.db.Student.Any(x => x.RegNumber == student.RegNumber))
                     {
                         MessageBox.Show("Рег. номер занят другим студентом");
                         Navigation.NextPage(new PageComponent("Добавление студента", new AddEditStudentPage(new Student(), "Add")));
+                        return; // Добавьте эту строку, чтобы прервать выполнение кода далее
                     }
-
                 }
-                    else App.db.Student.Add(student);
-                    // if (App.db.Student.Any(x => x.RegNumber == student.RegNumber))
-                    //{
-                    //    errors = true;
-                    //    MessageBox.Show("Рег. номер занят другим студентом");
-                    //    Navigation.NextPage(new PageComponent("Добавление студента", new AddEditStudentPage(new Student())));
-                }
-
-
-                student.Spec_ID = selectSpec.SpecID;
 
                 if (errors == false)
                 {
-                    App.db.Student.Add(student);
-                    student.Spec_ID = selectSpec.SpecID;
-                    MessageBox.Show("Сохранено!");
-                    
-                    Navigation.NextPage(new PageComponent("Список студентов", new StudentListPage()));
-                }
-               
 
+                    student.Spec_ID = selectSpec.SpecID;
+                    if(AddorEdit == "Add")
+                    {
+                        App.db.Student.Add(student);
+                    }
+                    else App.db.Entry(student).State = EntityState.Modified;
+                    
+
+
+                    App.db.SaveChanges();
+                    Navigation.NextPage(new PageComponent("Список студентов", new StudentListPage()));
+                    MessageBox.Show("Сохранено!");
+                }
+
+
+                else MessageBox.Show("Ошибка"); Navigation.NextPage(new PageComponent("Добавление студента", new AddEditStudentPage(new Student(), "Add")));
             }
-            else MessageBox.Show("Ошибка");
-            App.db.SaveChanges();
+            else MessageBox.Show("Ошибка"); Navigation.NextPage(new PageComponent("Добавление студента", new AddEditStudentPage(new Student(), "Add")));
         }
+           
+        
     }
 }
-

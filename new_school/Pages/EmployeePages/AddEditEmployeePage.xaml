@@ -53,9 +53,9 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock Foreground="#FF33678A" FontSize="18" >Таб.номер шефа</TextBlock>
-                <ComboBox Foreground="#FF33678A" x:Name="ShefCb"  FontSize="18" SelectedValue="{Binding Employee.Shef}"
-             
-                    Height="30" Width="200" Margin="5,0,0,5" BorderBrush="#FF33678A"></ComboBox>
+                <ComboBox Foreground="#FF33678A" x:Name="ShefCb"  FontSize="18" SelectedValue="{Binding Employee}" DisplayMemberPath="TabNumber"
+          Height="30" Width="200" Margin="5,0,0,5" BorderBrush="#FF33678A"
+          ></ComboBox>
             </StackPanel>
            
             <Button x:Name="SaveBtn" Style="{StaticResource ButtonStyle2}" Height="30" FontSize="18"

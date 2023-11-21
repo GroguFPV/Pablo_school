@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="new_school.Pages.ExamPages.ExamUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:new_school.Pages.ExamPages"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="910">
+    <Border BorderBrush="#FF33678A" BorderThickness="1.3">
+        <Grid  Background="#FFEAEFF3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5"/>
+                <RowDefinition/>
+                <RowDefinition Height="5"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" x:Name="ExamNum" FontSize="18" Foreground="#FF33678A"
+                   Margin="5,0,0,0">1</TextBlock>
+
+            <TextBlock VerticalAlignment="Center" Text="{Binding Date, StringFormat={}{0:yyyy-MM-dd}}"  Grid.Row="1" Grid.Column="2" x:Name="ExamDate" FontSize="18" Foreground="#FF33678A"
+            Margin="0,0,0,0">2023-03-22</TextBlock>
+
+            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="3" x:Name="ExamSpec" FontSize="18" Foreground="#FF33678A"
+            Margin="10,0,0,0">Специальность</TextBlock>
+
+            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="4" x:Name="ExamRegHum" FontSize="18" Foreground="#FF33678A"
+                Margin="0,0,0,0">Рег. номер</TextBlock>
+
+            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="5" x:Name="ExamTabHum" FontSize="18" Foreground="#FF33678A"
+                Margin="0,0,0,0">Рег. номер</TextBlock>
+
+            <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="6" x:Name="ExamAudi" FontSize="18" Foreground="#FF33678A"
+                Margin="0,0,0,0">№ кабинета</TextBlock>
+
+
+            <StackPanel Grid.Row="1" Grid.Column="7" Orientation="Horizontal" >
+
+                <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="7" x:Name="ExamGrade" FontSize="18" Foreground="#FF33678A"
+                 >Оценка</TextBlock>
+
+                <Button BorderThickness="0" Height="35" Width="35" Foreground="#FF33678A"
+             Style="{DynamicResource ButtonStyle2}" x:Name="EditExamBtn"
+             Background="White" FontSize="20"  Margin="5,0,5,0" Click="EditExamBtn_Click">✏️</Button>
+
+                <Button BorderThickness="0" Height="35" Width="35" Foreground="#FF33678A"
+             Style="{DynamicResource ButtonStyle2}"  x:Name="DelExamBtn"
+          Background="White" FontSize="20" Click="DelExamBtn_Click"   >🗑️</Button> 
+
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

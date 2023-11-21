@@ -15,51 +15,46 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace new_school.Pages.StudentPages
+namespace new_school.Pages.ExamPages
 {
     /// <summary>
-    /// Логика взаимодействия для StudentListPage.xaml
+    /// Логика взаимодействия для ExamListPage.xaml
     /// </summary>
-    public partial class StudentListPage : Page
+    public partial class ExamListPage : Page
     {
-        public StudentListPage()
+        public ExamListPage()
         {
             InitializeComponent();
             Refresh();
-            if(App.isAdmin == false)
-            {
-                AddStudentBtn.Visibility = Visibility.Hidden;
-                
-            }
         }
 
         private void Refresh()
         {
             ///////////////////////////////////////////////////////////////////
-            IEnumerable<Student> stListSort = App.db.Student;
-            if (StudentSortCb.SelectedIndex != 0)
+            IEnumerable<Exam> examListSort = App.db.Exam;
+            if (SortCb.SelectedIndex != 0)
             {
-                if (StudentSortCb.SelectedIndex == 1)
+                if (SortCb.SelectedIndex == 1)
                 {
-                    stListSort = stListSort.OrderBy(x => x.RegNumber);
+                    examListSort = examListSort.OrderBy(x => x.TabNumber);
                 }
-                else if (StudentSortCb.SelectedIndex == 2)
+                else if (SortCb.SelectedIndex == 2)
                 {
-                    stListSort = stListSort.OrderBy(x => x.LastName);
+                    examListSort = examListSort.OrderBy(x => x.Grade);
                 }
 
             }
 
             if (searchTB.Text != null)
             {
-                stListSort = stListSort.Where(x => x.LastName.ToLower().Contains(searchTB.Text.ToLower()));
+                examListSort = examListSort.Where(x => x.Student.LastName.ToLower().Contains(searchTB.Text.ToLower()) || x.Discipline.Title.ToLower().Contains(searchTB.Text.ToLower()));
+
             }
 
-
-            StudentWP.Children.Clear();
-            foreach (var student in stListSort)
+            ExamWP.Children.Clear();
+            foreach (var exam in examListSort)
             {
-                StudentWP.Children.Add(new StudentUserControl(student));
+                ExamWP.Children.Add(new ExamUserControl(exam));
             }
 
         }
@@ -67,7 +62,7 @@ namespace new_school.Pages.StudentPages
 
         private void AddEmployeeBtn_Click(object sender, RoutedEventArgs e)
         {
-            Navigation.NextPage(new PageComponent("Добавление студента", new AddEditStudentPage(new Student(), "Add")));
+            
         }
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -76,6 +71,11 @@ namespace new_school.Pages.StudentPages
         private void SortCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Refresh();
+        }
+
+        private void AddExamBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Добавление резльтата экзамена", new AddEditExamPage(new Exam(),"Add")));
         }
     }
 }

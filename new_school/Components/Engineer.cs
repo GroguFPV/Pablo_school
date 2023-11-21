@@ -18,7 +18,7 @@ namespace new_school.Components
         public int TabNumber { get; set; }
         public Nullable<int> EnSpecID { get; set; }
     
-        public virtual EnSpec EnSpec { get; set; }
         public virtual Employee Employee { get; set; }
+        public virtual EnSpec EnSpec { get; set; }
     }
 }

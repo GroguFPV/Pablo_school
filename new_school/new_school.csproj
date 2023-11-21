@@ -41,9 +41,13 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="QRCoder, Version=1.4.3.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>packages\QRCoder.1.4.3\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -78,6 +82,9 @@
     <Compile Include="Components\Animal.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Components\Auditorium.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Components\Control.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -97,6 +104,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Components\Flowers.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Grade.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Components\Kafedra.cs">
@@ -147,6 +157,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\DisciplinePages\AddEditDisciplinePages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DisciplinePages\DisciplinePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DisciplinePages\DisciplineUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ExamPages\AddEditExamPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ExamPages\ExamListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ExamPages\ExamUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\EmployeePages\AddEditEmployeePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -175,6 +209,24 @@
   <ItemGroup>
     <Compile Include="Pages\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DisciplinePages\AddEditDisciplinePages.xaml.cs">
+      <DependentUpon>AddEditDisciplinePages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DisciplinePages\DisciplinePage.xaml.cs">
+      <DependentUpon>DisciplinePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DisciplinePages\DisciplineUserControl.xaml.cs">
+      <DependentUpon>DisciplineUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExamPages\AddEditExamPage.xaml.cs">
+      <DependentUpon>AddEditExamPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExamPages\ExamListPage.xaml.cs">
+      <DependentUpon>ExamListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExamPages\ExamUserControl.xaml.cs">
+      <DependentUpon>ExamUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\EmployeePages\AddEditEmployeePage.xaml.cs">
       <DependentUpon>AddEditEmployeePage.xaml</DependentUpon>
@@ -228,21 +280,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pages\DisciplinePages\" />
-    <Folder Include="Pages\ExamPages\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Components\Employee_image.jpg" />
     <Content Include="Components\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Components\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Components\Employee_image.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

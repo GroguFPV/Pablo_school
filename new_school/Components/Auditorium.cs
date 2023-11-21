@@ -7,14 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Pablo_school.Res
+namespace new_school.Components
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Control
+    public partial class Auditorium
     {
-        public int ID { get; set; }
-        public string Surname { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Auditorium()
+        {
+            this.Exam = new HashSet<Exam>();
+        }
+    
+        public int AuditoriumID { get; set; }
+        public string Auditorium1 { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Exam> Exam { get; set; }
     }
 }

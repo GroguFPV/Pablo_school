@@ -3,6 +3,8 @@ using new_school.Pages.EmployeePages;
 using new_school.Pages.StudentPages;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +44,30 @@ namespace new_school.Pages
         private void StudentBtn_Click(object sender, RoutedEventArgs e)
         {
             Navigation.NextPage(new PageComponent("Список студентов", new StudentListPage()));
+        }
+
+        private void QRbtn_Click(object sender, RoutedEventArgs e)
+        {
+            string soucer_xl = "https://github.com/GroguFPV/new_school";
+            // Создание переменной библиотеки QRCoder
+            QRCoder.QRCodeGenerator qr = new QRCoder.QRCodeGenerator();
+            // Присваеваем значиения
+            QRCoder.QRCodeData data = qr.CreateQrCode(soucer_xl, QRCoder.QRCodeGenerator.ECCLevel.L);
+            // переводим в Qr
+            QRCoder.QRCode code = new QRCoder.QRCode(data);
+            Bitmap bitmap = code.GetGraphic(100);
+            /// Создание картинки
+            using (MemoryStream memory = new MemoryStream())
+            {
+                bitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Bmp);
+                memory.Position = 0;
+                BitmapImage bitmapimage = new BitmapImage();
+                bitmapimage.BeginInit();
+                bitmapimage.StreamSource = memory;
+                bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
+                bitmapimage.EndInit();
+                imageQr.Source = bitmapimage;
+            }
         }
     }
 }

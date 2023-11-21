@@ -29,7 +29,7 @@
                     </LinearGradientBrush>
                 </ComboBox.Background>
                 <ComboBoxItem Content="По умолчанию"/>
-                <ComboBoxItem Content="По таб. номеру"/>
+                <ComboBoxItem Content="По рег. номеру"/>
                 <ComboBoxItem Content="По фамилии"/>
             </ComboBox>
         
@@ -46,14 +46,14 @@
         
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <TextBlock Width="110" FontSize="18"  Foreground="#FF33678A" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="110,0,0,0">Рег. номер</TextBlock>
-            <TextBlock Width="410" FontSize="18" Foreground="#FF33678A" VerticalAlignment="Center" HorizontalAlignment="Left">Специальность</TextBlock>
+            <TextBlock Width="380" FontSize="18" Foreground="#FF33678A" VerticalAlignment="Center" HorizontalAlignment="Left">Специальность</TextBlock>
 
-            <TextBlock Width="220" FontSize="18"  Foreground="#FF33678A" VerticalAlignment="Center" HorizontalAlignment="Left">Фамилия И. О.</TextBlock>
+            <TextBlock Width="240" FontSize="18"  Foreground="#FF33678A" VerticalAlignment="Center" HorizontalAlignment="Left">Фамилия И. О.</TextBlock>
 
         </StackPanel>
         
         
-        <ScrollViewer Width="770" Height="450" Grid.Row="2" HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Bottom">
+        <ScrollViewer Width="770" Height="450" Grid.Row="2" HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Top">
             <WrapPanel VerticalAlignment="Top" x:Name="StudentWP"/>
         </ScrollViewer>
 

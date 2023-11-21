@@ -14,7 +14,7 @@ namespace new_school
     /// </summary>
     public partial class App : Application
     {
-        public static EPEntities db = new EPEntities();
+        public static EPEntities1 db = new EPEntities1();
         public static bool isAdmin = false;
     }
 }
