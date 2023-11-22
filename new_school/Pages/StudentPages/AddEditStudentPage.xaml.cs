@@ -95,9 +95,9 @@ namespace new_school.Pages.StudentPages
                 }
 
 
-                else MessageBox.Show("Ошибка"); Navigation.NextPage(new PageComponent("Добавление студента", new AddEditStudentPage(new Student(), "Add")));
+                
             }
-            else MessageBox.Show("Ошибка"); Navigation.NextPage(new PageComponent("Добавление студента", new AddEditStudentPage(new Student(), "Add")));
+            
         }
            
         

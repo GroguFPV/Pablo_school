@@ -5,36 +5,12 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Хранилище EPModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Academics">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="FIO" Type="nvarchar" MaxLength="150" />
-          <Property Name="Birthdate" Type="date" />
-          <Property Name="Specialization" Type="nvarchar" MaxLength="50" />
-          <Property Name="Year_invocation" Type="int" />
-        </EntityType>
-        <EntityType Name="Animal">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Squad" Type="nvarchar" MaxLength="40" />
-        </EntityType>
         <EntityType Name="Auditorium">
           <Key>
             <PropertyRef Name="AuditoriumID" />
           </Key>
           <Property Name="AuditoriumID" Type="int" Nullable="false" />
           <Property Name="Auditorium" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Control">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Surname" Type="nvarchar" MaxLength="40" />
         </EntityType>
         <EntityType Name="Discipline">
           <Key>
@@ -56,14 +32,6 @@
           <Property Name="Salary" Type="int" />
           <Property Name="Shef" Type="int" />
         </EntityType>
-        <EntityType Name="Engineer">
-          <Key>
-            <PropertyRef Name="EnginnerID" />
-          </Key>
-          <Property Name="EnginnerID" Type="int" Nullable="false" />
-          <Property Name="TabNumber" Type="int" Nullable="false" />
-          <Property Name="EnSpecID" Type="int" />
-        </EntityType>
         <EntityType Name="EnSpec">
           <Key>
             <PropertyRef Name="EnSpecID" />
@@ -83,20 +51,6 @@
           <Property Name="AuditoriumID" Type="int" />
           <Property Name="Grade" Type="int" />
         </EntityType>
-        <EntityType Name="Flowers">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Class" Type="nvarchar" MaxLength="40" />
-        </EntityType>
-        <EntityType Name="Grade">
-          <Key>
-            <PropertyRef Name="GradeID" />
-          </Key>
-          <Property Name="GradeID" Type="int" Nullable="false" />
-          <Property Name="Grade" Type="nvarchar" MaxLength="4" />
-        </EntityType>
         <EntityType Name="Kafedra">
           <Key>
             <PropertyRef Name="Kaf_ID" />
@@ -108,19 +62,6 @@
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "EP.dbo.Licei" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-        <EntityType Name="Licei">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Last_Name" />
-            <PropertyRef Name="Subject" />
-            <PropertyRef Name="School" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Last_Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Subject" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="School" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Score" Type="float" />
-        </EntityType>
         <EntityType Name="Position">
           <Key>
             <PropertyRef Name="PositionID" />
@@ -144,16 +85,6 @@
           <Property Name="RegNumber" Type="int" Nullable="false" />
           <Property Name="Spec_ID" Type="int" />
           <Property Name="LastName" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Student_sch">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Last_Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Subject" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="School" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Score" Type="float" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -218,30 +149,6 @@
             </Principal>
             <Dependent Role="Employee">
               <PropertyRef Name="PositionID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Engineer_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="Engineer" Type="Self.Engineer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="TabNumber" />
-            </Principal>
-            <Dependent Role="Engineer">
-              <PropertyRef Name="TabNumber" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Engineer_EnSpec">
-          <End Role="EnSpec" Type="Self.EnSpec" Multiplicity="0..1" />
-          <End Role="Engineer" Type="Self.Engineer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EnSpec">
-              <PropertyRef Name="EnSpecID" />
-            </Principal>
-            <Dependent Role="Engineer">
-              <PropertyRef Name="EnSpecID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -332,33 +239,17 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище EPModelContainer">
-          <EntitySet Name="Academics" EntityType="Self.Academics" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Animal" EntityType="Self.Animal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Auditorium" EntityType="Self.Auditorium" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Control" EntityType="Self.Control" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Discipline" EntityType="Self.Discipline" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Engineer" EntityType="Self.Engineer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EnSpec" EntityType="Self.EnSpec" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Flowers" EntityType="Self.Flowers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Grade" EntityType="Self.Grade" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kafedra" EntityType="Self.Kafedra" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Specialty" EntityType="Self.Specialty" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Student_sch" EntityType="Self.Student_sch" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Licei" EntityType="Self.Licei" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Licei].[Id] AS [Id], 
-    [Licei].[Last_Name] AS [Last_Name], 
-    [Licei].[Subject] AS [Subject], 
-    [Licei].[School] AS [School], 
-    [Licei].[Score] AS [Score]
-    FROM [dbo].[Licei] AS [Licei]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Discipline_Kafedra" Association="Self.FK_Discipline_Kafedra">
             <End Role="Kafedra" EntitySet="Kafedra" />
             <End Role="Discipline" EntitySet="Discipline" />
@@ -374,14 +265,6 @@
           <AssociationSet Name="FK_Employee_Position" Association="Self.FK_Employee_Position">
             <End Role="Position" EntitySet="Position" />
             <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Engineer_Employee" Association="Self.FK_Engineer_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Engineer" EntitySet="Engineer" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Engineer_EnSpec" Association="Self.FK_Engineer_EnSpec">
-            <End Role="EnSpec" EntitySet="EnSpec" />
-            <End Role="Engineer" EntitySet="Engineer" />
           </AssociationSet>
           <AssociationSet Name="FK_Exam_Auditorium" Association="Self.FK_Exam_Auditorium">
             <End Role="Auditorium" EntitySet="Auditorium" />
@@ -416,23 +299,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Academics">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="FIO" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Birthdate" Type="DateTime" Precision="0" />
-          <Property Name="Specialization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Year_invocation" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Animal">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Squad" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Auditorium">
           <Key>
             <PropertyRef Name="AuditoriumID" />
@@ -440,13 +306,6 @@
           <Property Name="AuditoriumID" Type="Int32" Nullable="false" />
           <Property Name="Auditorium1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_Auditorium" FromRole="Auditorium" ToRole="Exam" />
-        </EntityType>
-        <EntityType Name="Control">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Surname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -462,19 +321,8 @@
           <NavigationProperty Name="Employee2" Relationship="Self.FK_Employee_Employee" FromRole="Employee1" ToRole="Employee" />
           <NavigationProperty Name="Kafedra" Relationship="Self.FK_Employee_Kafedra" FromRole="Employee" ToRole="Kafedra" />
           <NavigationProperty Name="Position" Relationship="Self.FK_Employee_Position" FromRole="Employee" ToRole="Position" />
-          <NavigationProperty Name="Engineer" Relationship="Self.FK_Engineer_Employee" FromRole="Employee" ToRole="Engineer" />
           <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_Employee" FromRole="Employee" ToRole="Exam" />
           <NavigationProperty Name="Teacher" Relationship="Self.FK_Teacher_Employee" FromRole="Employee" ToRole="Teacher" />
-        </EntityType>
-        <EntityType Name="Engineer">
-          <Key>
-            <PropertyRef Name="EnginnerID" />
-          </Key>
-          <Property Name="EnginnerID" Type="Int32" Nullable="false" />
-          <Property Name="TabNumber" Type="Int32" Nullable="false" />
-          <Property Name="EnSpecID" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Engineer_Employee" FromRole="Engineer" ToRole="Employee" />
-          <NavigationProperty Name="EnSpec" Relationship="Self.FK_Engineer_EnSpec" FromRole="Engineer" ToRole="EnSpec" />
         </EntityType>
         <EntityType Name="EnSpec">
           <Key>
@@ -482,7 +330,6 @@
           </Key>
           <Property Name="EnSpecID" Type="Int32" Nullable="false" />
           <Property Name="EnSpec1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Engineer" Relationship="Self.FK_Engineer_EnSpec" FromRole="EnSpec" ToRole="Engineer" />
         </EntityType>
         <EntityType Name="Exam">
           <Key>
@@ -499,20 +346,6 @@
           <NavigationProperty Name="Employee" Relationship="Self.FK_Exam_Employee" FromRole="Exam" ToRole="Employee" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Exam_Student" FromRole="Exam" ToRole="Student" />
           <NavigationProperty Name="Discipline" Relationship="EPModel.FK_Exam_Discipline" FromRole="Exam" ToRole="Discipline" />
-        </EntityType>
-        <EntityType Name="Flowers">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Class" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Grade">
-          <Key>
-            <PropertyRef Name="GradeID" />
-          </Key>
-          <Property Name="GradeID" Type="Int32" Nullable="false" />
-          <Property Name="Grade1" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Kafedra">
           <Key>
@@ -555,16 +388,6 @@
           <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_Student" FromRole="Student" ToRole="Exam" />
           <NavigationProperty Name="Specialty" Relationship="Self.FK_Student_Specialty" FromRole="Student" ToRole="Specialty" />
         </EntityType>
-        <EntityType Name="Student_sch">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="School" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Score" Type="Double" />
-        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -583,19 +406,6 @@
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Degree" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Teacher_Employee" FromRole="Teacher" ToRole="Employee" />
-        </EntityType>
-        <EntityType Name="Licei">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Last_Name" />
-            <PropertyRef Name="Subject" />
-            <PropertyRef Name="School" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="School" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Score" Type="Double" />
         </EntityType>
         <Association Name="FK_Exam_Auditorium">
           <End Role="Auditorium" Type="Self.Auditorium" Multiplicity="0..1" />
@@ -645,18 +455,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Engineer_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="Engineer" Type="Self.Engineer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="TabNumber" />
-            </Principal>
-            <Dependent Role="Engineer">
-              <PropertyRef Name="TabNumber" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Exam_Employee">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
@@ -678,18 +476,6 @@
             </Principal>
             <Dependent Role="Teacher">
               <PropertyRef Name="TabNumber" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Engineer_EnSpec">
-          <End Role="EnSpec" Type="Self.EnSpec" Multiplicity="0..1" />
-          <End Role="Engineer" Type="Self.Engineer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EnSpec">
-              <PropertyRef Name="EnSpecID" />
-            </Principal>
-            <Dependent Role="Engineer">
-              <PropertyRef Name="EnSpecID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -730,24 +516,16 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="EPEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Academics" EntityType="Self.Academics" />
-          <EntitySet Name="Animal" EntityType="Self.Animal" />
           <EntitySet Name="Auditorium" EntityType="Self.Auditorium" />
-          <EntitySet Name="Control" EntityType="Self.Control" />
           <EntitySet Name="Employee" EntityType="Self.Employee" />
-          <EntitySet Name="Engineer" EntityType="Self.Engineer" />
           <EntitySet Name="EnSpec" EntityType="Self.EnSpec" />
           <EntitySet Name="Exam" EntityType="Self.Exam" />
-          <EntitySet Name="Flowers" EntityType="Self.Flowers" />
-          <EntitySet Name="Grade" EntityType="Self.Grade" />
           <EntitySet Name="Kafedra" EntityType="Self.Kafedra" />
           <EntitySet Name="Position" EntityType="Self.Position" />
           <EntitySet Name="Specialty" EntityType="Self.Specialty" />
           <EntitySet Name="Student" EntityType="Self.Student" />
-          <EntitySet Name="Student_sch" EntityType="Self.Student_sch" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Teacher" EntityType="Self.Teacher" />
-          <EntitySet Name="Licei" EntityType="Self.Licei" />
           <AssociationSet Name="FK_Exam_Auditorium" Association="Self.FK_Exam_Auditorium">
             <End Role="Auditorium" EntitySet="Auditorium" />
             <End Role="Exam" EntitySet="Exam" />
@@ -764,10 +542,6 @@
             <End Role="Position" EntitySet="Position" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
-          <AssociationSet Name="FK_Engineer_Employee" Association="Self.FK_Engineer_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Engineer" EntitySet="Engineer" />
-          </AssociationSet>
           <AssociationSet Name="FK_Exam_Employee" Association="Self.FK_Exam_Employee">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Exam" EntitySet="Exam" />
@@ -775,10 +549,6 @@
           <AssociationSet Name="FK_Teacher_Employee" Association="Self.FK_Teacher_Employee">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Teacher" EntitySet="Teacher" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Engineer_EnSpec" Association="Self.FK_Engineer_EnSpec">
-            <End Role="EnSpec" EntitySet="EnSpec" />
-            <End Role="Engineer" EntitySet="Engineer" />
           </AssociationSet>
           <AssociationSet Name="FK_Exam_Student" Association="Self.FK_Exam_Student">
             <End Role="Student" EntitySet="Student" />
@@ -845,38 +615,11 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище EPModelContainer" CdmEntityContainer="EPEntities1">
-          <EntitySetMapping Name="Academics">
-            <EntityTypeMapping TypeName="EPModel.Academics">
-              <MappingFragment StoreEntitySet="Academics">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="FIO" ColumnName="FIO" />
-                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
-                <ScalarProperty Name="Specialization" ColumnName="Specialization" />
-                <ScalarProperty Name="Year_invocation" ColumnName="Year_invocation" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Animal">
-            <EntityTypeMapping TypeName="EPModel.Animal">
-              <MappingFragment StoreEntitySet="Animal">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Squad" ColumnName="Squad" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Auditorium">
             <EntityTypeMapping TypeName="EPModel.Auditorium">
               <MappingFragment StoreEntitySet="Auditorium">
                 <ScalarProperty Name="AuditoriumID" ColumnName="AuditoriumID" />
                 <ScalarProperty Name="Auditorium1" ColumnName="Auditorium" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Control">
-            <EntityTypeMapping TypeName="EPModel.Control">
-              <MappingFragment StoreEntitySet="Control">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -889,15 +632,6 @@
                 <ScalarProperty Name="PositionID" ColumnName="PositionID" />
                 <ScalarProperty Name="Salary" ColumnName="Salary" />
                 <ScalarProperty Name="Shef" ColumnName="Shef" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Engineer">
-            <EntityTypeMapping TypeName="EPModel.Engineer">
-              <MappingFragment StoreEntitySet="Engineer">
-                <ScalarProperty Name="EnginnerID" ColumnName="EnginnerID" />
-                <ScalarProperty Name="TabNumber" ColumnName="TabNumber" />
-                <ScalarProperty Name="EnSpecID" ColumnName="EnSpecID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -919,22 +653,6 @@
                 <ScalarProperty Name="TabNumber" ColumnName="TabNumber" />
                 <ScalarProperty Name="AuditoriumID" ColumnName="AuditoriumID" />
                 <ScalarProperty Name="Grade" ColumnName="Grade" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Flowers">
-            <EntityTypeMapping TypeName="EPModel.Flowers">
-              <MappingFragment StoreEntitySet="Flowers">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Class" ColumnName="Class" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Grade">
-            <EntityTypeMapping TypeName="EPModel.Grade">
-              <MappingFragment StoreEntitySet="Grade">
-                <ScalarProperty Name="GradeID" ColumnName="GradeID" />
-                <ScalarProperty Name="Grade1" ColumnName="Grade" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -975,17 +693,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Student_sch">
-            <EntityTypeMapping TypeName="EPModel.Student_sch">
-              <MappingFragment StoreEntitySet="Student_sch">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
-                <ScalarProperty Name="Subject" ColumnName="Subject" />
-                <ScalarProperty Name="School" ColumnName="School" />
-                <ScalarProperty Name="Score" ColumnName="Score" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="EPModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -1003,17 +710,6 @@
                 <ScalarProperty Name="TabNumber" ColumnName="TabNumber" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Degree" ColumnName="Degree" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Licei">
-            <EntityTypeMapping TypeName="EPModel.Licei">
-              <MappingFragment StoreEntitySet="Licei">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
-                <ScalarProperty Name="Subject" ColumnName="Subject" />
-                <ScalarProperty Name="School" ColumnName="School" />
-                <ScalarProperty Name="Score" ColumnName="Score" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

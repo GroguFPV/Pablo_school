@@ -1,5 +1,6 @@
 ﻿using new_school.Components;
 using new_school.Pages.EmployeePages;
+using new_school.Pages.ExamPages;
 using new_school.Pages.StudentPages;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,7 @@ namespace new_school.Pages
         {
             if (EmployeeTb.Text == "0000")
             {   App.isAdmin = true;
-                Navigation.NextPage(new PageComponent("Список сотрудников", new EmployeeListPage()));
+                Navigation.NextPage(new PageComponent("Список экзаменов", new ExamListPage()));
                 
             }
             else MessageBox.Show("Необходимо ввести 0000");

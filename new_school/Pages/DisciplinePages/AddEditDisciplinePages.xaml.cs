@@ -50,7 +50,7 @@ namespace new_school.Pages.DisciplinePages
 
             var selectKafAb = KadCb.SelectedItem as Kafedra;
 
-            if (selectKafAb != null)
+            if (selectKafAb != null) 
             {
                 if (string.IsNullOrEmpty(DisCode.Text) || string.IsNullOrEmpty(DisVolume.Text) || string.IsNullOrEmpty(DisName.Text))
                 {

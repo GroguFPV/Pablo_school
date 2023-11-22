@@ -28,7 +28,7 @@ namespace new_school.Pages.EmployeePages
         {
             InitializeComponent();
             employee = _employee;
-
+            
             this.DataContext = employee;
             TabNum.MaxLength = 3;
             PositionCb.ItemsSource = App.db.Position.ToList();
@@ -36,7 +36,8 @@ namespace new_school.Pages.EmployeePages
             KafedraCb.ItemsSource = App.db.Kafedra.ToList();
             KafedraCb.DisplayMemberPath = "Code";
             ShefCb.ItemsSource = App.db.Employee.ToList();
-            ShefCb.DisplayMemberPath = "Shef";
+            ShefCb.DisplayMemberPath = "TabNumber";
+            ShefCb.SelectedItem = employee.Employee1;
 
             AddorEdit = _addorEdit;
         }
@@ -78,12 +79,13 @@ namespace new_school.Pages.EmployeePages
                             App.db.Employee.Add(employee);
                             employee.Kaf_id = selectKaf_id.Kaf_ID;
                             employee.PositionID = selectPosition.PositionID;
-                            employee.Shef = selectShef.TabNumber;
+                            employee.Shef = selectShef.Shef;
 
                             if (AddorEdit == "Add")
                             {
                                 App.db.Employee.Add(employee);
                             }
+                            
                             else App.db.Entry(employee).State = EntityState.Modified;
 
                             MessageBox.Show("Сохранено!");

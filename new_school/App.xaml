@@ -27,14 +27,5 @@
                 </Style>
             </Style.Resources>
         </Style>
-
-        <Style TargetType="Image" x:Key="ImageStyle">
-            <Style.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10" />
-                </Style>
-            </Style.Resources>
-        </Style>
-
     </Application.Resources>
 </Application>

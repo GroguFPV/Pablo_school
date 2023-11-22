@@ -14,16 +14,7 @@ namespace new_school.Components
     
     public partial class EnSpec
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EnSpec()
-        {
-            this.Engineer = new HashSet<Engineer>();
-        }
-    
         public int EnSpecID { get; set; }
         public string EnSpec1 { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Engineer> Engineer { get; set; }
     }
 }
