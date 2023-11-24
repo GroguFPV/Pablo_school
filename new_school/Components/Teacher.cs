@@ -14,6 +14,7 @@ namespace new_school.Components
     
     public partial class Teacher
     {
+        public int TeacherID { get; set; }
         public int TabNumber { get; set; }
         public string Title { get; set; }
         public string Degree { get; set; }

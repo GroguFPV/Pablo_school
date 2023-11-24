@@ -26,7 +26,7 @@
                  Background="#FFEAEFF3" FontSize="16" BorderBrush="#FF33678A" Foreground="#FF33678A"></TextBox>
 
             <Button x:Name ="EmployeeBtn"  BorderBrush="White" Margin="0,0,0,5" Height="45" Style="{DynamicResource ButtonStyle}"
-            Foreground="#FFEAEFF3"  Background="#FF33678A"  FontSize="16" Click="EmployeeBtn_Click_1" >
+            Foreground="#FFEAEFF3"  Background="#FF33678A"  FontSize="16" Click="EmployeeBtn_Click" >
                 Войти как сотрудник</Button>
 
             <Button x:Name ="StudentBtn" BorderBrush="White"  Height="45" Style="{DynamicResource ButtonStyle}"

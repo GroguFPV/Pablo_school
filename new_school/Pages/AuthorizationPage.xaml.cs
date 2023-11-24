@@ -32,14 +32,14 @@ namespace new_school.Pages
         }
 
 
-        private void EmployeeBtn_Click_1(object sender, RoutedEventArgs e)
+        private void EmployeeBtn_Click(object sender, RoutedEventArgs e)
         {
             if (EmployeeTb.Text == "0000")
             {   App.isAdmin = true;
                 Navigation.NextPage(new PageComponent("Список экзаменов", new ExamListPage()));
                 
             }
-            else MessageBox.Show("Необходимо ввести 0000");
+            else MessageBox.Show("Неправильный код!");
         }
 
         private void StudentBtn_Click(object sender, RoutedEventArgs e)

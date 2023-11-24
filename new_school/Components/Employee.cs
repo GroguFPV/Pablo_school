@@ -19,6 +19,7 @@ namespace new_school.Components
         {
             this.Employee1 = new HashSet<Employee>();
             this.Exam = new HashSet<Exam>();
+            this.Teacher = new HashSet<Teacher>();
         }
     
         public int TabNumber { get; set; }
@@ -35,6 +36,7 @@ namespace new_school.Components
         public virtual Position Position { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam> Exam { get; set; }
-        public virtual Teacher Teacher { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Teacher> Teacher { get; set; }
     }
 }

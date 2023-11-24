@@ -40,6 +40,7 @@ namespace new_school.Components
             }
             else
             {
+                
                 mainWindow.EmListMWbtn.Visibility = System.Windows.Visibility.Hidden;
                 mainWindow.ExamListMWbtn.Visibility = System.Windows.Visibility.Hidden;
                 mainWindow.StudentListMWbtn.Visibility = System.Windows.Visibility.Hidden;
